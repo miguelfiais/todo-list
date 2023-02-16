@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.form`
     width: 100%;
-    display: flex;
+    display: ${props => props.isVisible ? "none" : "flex"};
     gap: 25px;
     margin-bottom: 32px;
     input{
