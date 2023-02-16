@@ -22,8 +22,6 @@ export const Container = styled.header`
         border-bottom: 1px solid #BDBDBD;
         margin-bottom: 20px;
         li{
-            padding: 10px;
-            border-bottom: 4px solid #2F80ED;
             font-style: normal;
             font-weight: 600;
             font-size: 14px;
@@ -31,4 +29,10 @@ export const Container = styled.header`
             color: #333333;
         }
     }
+`
+export const Button = styled.button`
+    padding: 10px;
+    border: none;
+    background-color: transparent;
+    border-bottom: ${props => props.isActive ? "4px solid #2F80ED" : "none"};
 `
