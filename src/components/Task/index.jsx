@@ -1,7 +1,7 @@
 import { Container, ItemList } from "./styles"
 import { BsCheckLg } from "react-icons/bs";
 
-const Task = ({list, completedTask}) => {
+const Task = ({list, completedTask, message}) => {
 
   return (
     <Container>
@@ -18,7 +18,7 @@ const Task = ({list, completedTask}) => {
             }
           </ul>
         ):(
-          <h2>No Tasks</h2>
+          <h2>{message}</h2>
         )
       }
     </Container>

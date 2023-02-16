@@ -7,7 +7,7 @@ const All = () => {
 
   return (
     <>
-      <Task list={list} completedTask={completedTask}/>
+      <Task list={list} completedTask={completedTask} message={"No tasks!"}/>
     </>
   )
 }

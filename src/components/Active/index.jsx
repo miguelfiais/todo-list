@@ -16,7 +16,7 @@ const Active = () => {
 
   return (
     <>
-      <Task list={listActive} completedTask={completedTask}/>
+      <Task list={listActive} completedTask={completedTask} message={"No active task!"}/>
     </>
   )
 }
