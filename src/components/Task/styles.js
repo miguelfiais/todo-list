@@ -10,13 +10,14 @@ export const Container = styled.div`
 `
 
 export const ItemList = styled.li`
-    max-width: 460px;
+    position: relative;
     display: flex;
     gap: 10px;
     input{
         width: 20px;
     }
     span{
+        max-width: 460px;
         font-style: normal;
         font-weight: 500;
         font-size: 18px;
@@ -24,7 +25,7 @@ export const ItemList = styled.li`
         color: #000000;
         text-decoration: ${props => props.isCompleted ? 'line-through' : 'none'};
     }
-    button{
+    .to-complete{
         height: 25px;
         width: 25px;
         background: ${props => props.isCompleted ? '#2F80ED' : 'transparent'};
@@ -35,6 +36,18 @@ export const ItemList = styled.li`
             height: auto;
             color: #fff;
             display: ${props => props.isCompleted ? 'block' : 'none'};
+        }
+    }
+    .delete{
+        display: ${props => props.isVisibleDelete ? 'block' : 'none'};
+        background-color: transparent;
+        border: none;
+        position: absolute;
+        right: 0;
+        svg{
+            width: 25px;
+            height: auto;
+            color: #BDBDBD;
         }
     }
 `

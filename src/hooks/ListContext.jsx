@@ -6,8 +6,6 @@ export const ListProvider = ({ children }) => {
   
   const [list, setList] = useState([])
 
-  console.log(list)
-
   function completedTask (id) {
     const newList = list.map(item => (
       id === item.id ? {...item, completed: !item.completed} : item
@@ -15,8 +13,13 @@ export const ListProvider = ({ children }) => {
     setList(newList)
   }
 
+  function deleteTask (id) {
+    const newList = list.filter(item => id !== item.id)
+    setList(newList)
+  }
+
   return (
-    <ListContext.Provider value={{ list, setList, completedTask }}>
+    <ListContext.Provider value={{ list, setList, completedTask, deleteTask }}>
         {children}
     </ListContext.Provider>
   )

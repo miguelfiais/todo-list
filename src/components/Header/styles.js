@@ -20,13 +20,6 @@ export const Container = styled.header`
         justify-items: center;
         border-bottom: 1px solid #BDBDBD;
         margin-bottom: 20px;
-        li{
-            font-style: normal;
-            font-weight: 600;
-            font-size: 14px;
-            line-height: 17px;
-            color: #333333;
-        }
     }
 `
 export const Button = styled.button`
@@ -34,4 +27,9 @@ export const Button = styled.button`
     border: none;
     background-color: transparent;
     border-bottom: ${props => props.isActive ? "4px solid #2F80ED" : "none"};
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: #333333;
 `
