@@ -1,15 +1,18 @@
 import React, { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid'
+import { useList } from '../../hooks/ListContext'
 import { Container } from './styles'
 
 const Form = () => {
 
-    const [task, setTask] = useState("")
-    
-    function getTask (e) {
-        e.preventDefault()
-        console.log(task)
-        setTask("")
-    }
+  const {list, setList} = useList()
+  const [task, setTask] = useState("")
+  
+  function getTask (e) {
+      e.preventDefault()
+      setList([...list, {id: uuidv4(), task, completed: false}])
+      setTask("")
+  }
 
   return (
     <Container onSubmit={getTask}>

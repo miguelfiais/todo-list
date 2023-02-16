@@ -1,6 +1,14 @@
+import { useList } from "../../hooks/ListContext"
+import Task from "../Task";
+
 const All = () => {
+
+  const { list, completedTask } = useList()
+
   return (
-    <div>All</div>
+    <>
+      <Task list={list} completedTask={completedTask}/>
+    </>
   )
 }
 
