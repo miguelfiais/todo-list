@@ -6,19 +6,25 @@ import { Button, Container } from "./styles";
 
 const Completed = () => {
 
-  const { list, completedTask } = useList()
-  const [listActive, setListActive] = useState([])
+  const { list, completedTask, setList } = useList()
+  const [listCompleted, setListCompleted] = useState([])
 
   useEffect(() => {
     const newList = list.filter(item => item.completed === true)
-  setListActive(newList)
+    setListCompleted(newList)
+    console.log(list)
   },[list])
+
+  function deleteAllTask () {
+    const newList = list.filter(item => item.completed === false)
+    setList(newList)
+  }
 
 
   return (
     <Container>
-      <Task list={listActive} completedTask={completedTask} message={"No task complete!"}/>
-      <Button> <RxTrash/> delete all</Button>
+      <Task list={listCompleted} completedTask={completedTask} message={"No task complete!"}/>
+      <Button onClick={deleteAllTask}> <RxTrash/> delete all</Button>
     </Container>
   )
 }
