@@ -8,11 +8,11 @@
 
 <div align="center">
   <h3>
-    <a href="https://https://mftodolist.netlify.app/">
+    <a href="https://mftodolist.netlify.app/">
       Demo
     </a>
     <span> | </span>
-    <a href="https://https://github.com/miguelfiais/todo-list">
+    <a href="https://github.com/miguelfiais/todo-list">
       Solução
     </a>
     <span> | </span>
