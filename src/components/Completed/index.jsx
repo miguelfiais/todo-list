@@ -12,12 +12,12 @@ const Completed = () => {
   useEffect(() => {
     const newList = list.filter(item => item.completed === true)
     setListCompleted(newList)
-    console.log(list)
   },[list])
 
-  function deleteAllTask () {
+  async function deleteAllTask () {
     const newList = list.filter(item => item.completed === false)
     setList(newList)
+    await localStorage.setItem("todo-list", JSON.stringify(newList))
   }
 
 

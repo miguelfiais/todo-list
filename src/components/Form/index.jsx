@@ -10,9 +10,12 @@ const Form = () => {
   const {list, setList} = useList()
   const [task, setTask] = useState("")
   
-  function getTask (e) {
+  let newList = []
+  async function getTask (e) {
       e.preventDefault()
-      setList([...list, {id: uuidv4(), task, completed: false}])
+      newList = [...list, {id: uuidv4(), task, completed: false}]
+      setList(newList)
+      await localStorage.setItem("todo-list", JSON.stringify(newList))
       setTask("")
   }
 

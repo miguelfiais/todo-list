@@ -6,17 +6,30 @@ export const ListProvider = ({ children }) => {
   
   const [list, setList] = useState([])
 
-  function completedTask (id) {
+  async function completedTask (id) {
     const newList = list.map(item => (
       id === item.id ? {...item, completed: !item.completed} : item
     ))
     setList(newList)
+    await localStorage.setItem("todo-list", JSON.stringify(newList))
   }
 
-  function deleteTask (id) {
-    const newList = list.filter(item => id !== item.id)
-    setList(newList)
+  let newListDelete = []
+  async function deleteTask (id) {
+    newListDelete = list.filter(item => id !== item.id)
+    setList(newListDelete)
+    await localStorage.setItem("todo-list", JSON.stringify(newListDelete))
   }
+
+  useEffect(() => {
+    async function getLocalStorage(){
+      const listLocalStorage = await localStorage.getItem("todo-list");
+      if(listLocalStorage){
+        setList(JSON.parse(listLocalStorage))
+      }
+    }
+    getLocalStorage()
+  }, [])
 
   return (
     <ListContext.Provider value={{ list, setList, completedTask, deleteTask }}>
