@@ -11,14 +11,14 @@ export const ListProvider = ({ children }) => {
       id === item.id ? {...item, completed: !item.completed} : item
     ))
     setList(newList)
-    await localStorage.setItem("todo-list", JSON.stringify(newList))
+    await updateLocalStorage(newList)
   }
 
   let newListDelete = []
   async function deleteTask (id) {
     newListDelete = list.filter(item => id !== item.id)
     setList(newListDelete)
-    await localStorage.setItem("todo-list", JSON.stringify(newListDelete))
+    await updateLocalStorage(newListDelete)
   }
 
   useEffect(() => {
@@ -31,8 +31,12 @@ export const ListProvider = ({ children }) => {
     getLocalStorage()
   }, [])
 
+  async function updateLocalStorage(list){
+    await localStorage.setItem("todo-list", JSON.stringify(list))
+  }
+
   return (
-    <ListContext.Provider value={{ list, setList, completedTask, deleteTask }}>
+    <ListContext.Provider value={{ list, setList, completedTask, deleteTask, updateLocalStorage }}>
         {children}
     </ListContext.Provider>
   )

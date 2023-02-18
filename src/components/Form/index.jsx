@@ -7,7 +7,7 @@ import { Container } from './styles'
 const Form = () => {
   const { pathname } = useLocation()
 
-  const {list, setList} = useList()
+  const {list, setList, updateLocalStorage} = useList()
   const [task, setTask] = useState("")
   
   let newList = []
@@ -15,7 +15,7 @@ const Form = () => {
       e.preventDefault()
       newList = [...list, {id: uuidv4(), task, completed: false}]
       setList(newList)
-      await localStorage.setItem("todo-list", JSON.stringify(newList))
+      await updateLocalStorage(newList)
       setTask("")
   }
 
