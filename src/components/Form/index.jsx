@@ -13,10 +13,14 @@ const Form = () => {
   let newList = []
   async function getTask (e) {
       e.preventDefault()
-      newList = [...list, {id: uuidv4(), task, completed: false}]
-      setList(newList)
-      await updateLocalStorage(newList)
-      setTask("")
+      if(task){
+        newList = [...list, {id: uuidv4(), task, completed: false}]
+        setList(newList)
+        await updateLocalStorage(newList)
+        setTask("")
+      } else{
+        alert("add task is required")
+      }
   }
 
   return (
