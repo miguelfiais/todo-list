@@ -8,7 +8,6 @@ export const Container = styled.div`
         gap: 20px;
     }
 `
-
 export const ItemList = styled.li`
     position: relative;
     display: flex;
@@ -38,8 +37,7 @@ export const ItemList = styled.li`
             display: ${props => props.isCompleted ? 'block' : 'none'};
         }
     }
-    .delete{
-        display: ${props => props.isVisibleDelete ? 'block' : 'none'};
+    .delete, .change{
         background-color: transparent;
         border: none;
         position: absolute;
@@ -49,5 +47,11 @@ export const ItemList = styled.li`
             height: auto;
             color: #BDBDBD;
         }
+    }
+    .delete{
+        display: ${props => props.isVisibleDelete ? 'block' : 'none'};
+    }
+    .change{
+        display: ${props => props.isVisibleDelete ? 'none' : 'block'};
     }
 `

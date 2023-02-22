@@ -3,6 +3,7 @@ import { BsCheckLg } from "react-icons/bs";
 import { RxTrash } from "react-icons/rx";
 import { useLocation } from "react-router-dom";
 import { useList } from "../../hooks/ListContext";
+import BasicModal from "../BasicModal";
 
   const Task = ({list, completedTask, message}) => {
 
@@ -20,6 +21,7 @@ import { useList } from "../../hooks/ListContext";
                   <button className="to-complete" onClick={() => completedTask(item.id)}><BsCheckLg /></button>
                   <span>{item.task}</span>
                   <button className="delete" onClick={() => deleteTask(item.id)}><RxTrash /></button>
+                  <BasicModal item={item}/>
                 </ItemList>
               ))
             }
